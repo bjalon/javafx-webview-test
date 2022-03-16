@@ -1,0 +1,35 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.12'
+}
+
+group 'com.mechanitis'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "16"
+    modules = ['javafx.base', 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.base', 'javafx.web', 'javafx.graphics', 'javafx.media']
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainModule.set('com.mechanitis.demo.javafxgradle')
+    mainClass.set('com.mechanitis.demo.javafxgradle.HelloFX')
+}
+
+java {
+    modularity.inferModulePath.set(true)
+}
+
